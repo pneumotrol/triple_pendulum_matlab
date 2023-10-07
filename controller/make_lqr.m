@@ -9,7 +9,7 @@ else
     disp("uncontrollable.");
 end
 
-Q_lqr = diag([1e2,1e2,1e2,1,1,1]);
+Q_lqr = diag([1e2,1e2,1e2,1e2,1,1,1,1]);
 R_lqr = diag([1]);
 
 K_lqr = lqr(A,B,Q_lqr,R_lqr);

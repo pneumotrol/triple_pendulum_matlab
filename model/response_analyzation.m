@@ -8,13 +8,15 @@ dim = 4;
 header = ["cart", "pendulum 1", "pendulum 2", "pendulum 3"];
 
 %% read data (Simulink)
-load("data/simulink_out.mat");
+load("data/simout_cart_fixed.mat");
+load("data/simout_cart_free.mat");
 
 sim_time = position.Time;
 sim_position = position.Data;
 
 %% read data (ROS2)
-t = readcell("data/rosout.csv");
+t = readcell("data/rosout_cart_fixed.csv");
+t = readcell("data/rosout_cart_free.csv");
 
 ros2_time = cell2mat(t(:,1)) + cell2mat(t(:,2)) / 1e9;
 ros2_position = cell2mat(t(:,8:8+dim-1));
